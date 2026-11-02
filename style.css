@@ -1,0 +1,136 @@
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+}
+
+/* Main Grid Layout */
+.container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "gallery"
+        "footer";
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    grid-area: header;
+    background-color: #172554;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.header nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+}
+
+.header a:hover {
+    color: #93c5fd;
+}
+
+/* Gallery Section */
+.gallery {
+    grid-area: gallery;
+    padding: 40px;
+    text-align: center;
+}
+
+.gallery h2 {
+    color: #172554;
+    margin-bottom: 10px;
+}
+
+.gallery p {
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+/* Photo Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 250px), 1fr)
+    );
+    gap: 25px;
+}
+
+/* Image Cards */
+.card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px #ddd;
+    min-width: 0;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    max-width: 100%;
+}
+
+.card h3 {
+    padding: 18px;
+    color: #172554;
+    overflow-wrap: anywhere;
+}
+
+/* Footer */
+.footer {
+    grid-area: footer;
+    background-color: #172554;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .header {
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .header nav {
+        justify-content: center;
+    }
+
+    .gallery {
+        padding: 20px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
